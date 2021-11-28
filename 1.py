@@ -5,4 +5,4 @@ for i in range(len(y)):
     print(y[i])
     print(id(y[i]))
 for i in range(x):
-    print(x)
+    print(i)
