@@ -1,9 +1,7 @@
 x = 3
 y = [1, 2, 3, 4, 5]
 print(id(y))
-for i in range(len(y)):
-    print(x)
-    print(id(y[i]))
+print(2)
 for i in range(x):
     print(i)
     if i == 2:
