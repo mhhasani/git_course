@@ -6,3 +6,5 @@ for i in range(len(y)):
     print(id(y[i]))
 for i in range(x):
     print(i)
+    if i == 2:
+        break
