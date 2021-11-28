@@ -6,7 +6,7 @@ def f(*n):
 
 
 x = 3
-y = [1, 2, 3, 4, 6]
+y = [1, 2, 3, 4, 6, 7]
 print(id(y))
 print(2)
 for i in range(x):
