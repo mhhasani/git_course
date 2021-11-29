@@ -24,5 +24,6 @@ def sort_item(item):
 
 
 y.sort(key=sort_item)
+y = list(map(lambda x: x[1], filter(lambda x: x % 2 == 0)))
 print(y)
 print(s[0])
