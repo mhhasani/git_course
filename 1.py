@@ -155,3 +155,22 @@ print(sampleclass.count)
 
 print(s1.change_name("103").name)
 print(s1.name, s2.name)
+
+
+class Score:
+    def __init__(self, math, physic):
+        self.math = math
+        self.physic = physic
+
+    def __eq__(self, other):
+        return self.math == other.math and self.physic == other.physic
+
+    def __add__(self, other):
+        return Score((self.math + other.math)/2, (self.physic + other.physic)/2)
+
+
+a = Score(20, 19)
+b = Score(18, 18)
+
+print(a == b)
+print((a + b).math, (a+b).physic)
