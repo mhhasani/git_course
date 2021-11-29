@@ -14,3 +14,6 @@ for i in range(x):
     if i == 2:
         break
 print(f(1, 4, 2, 6))
+s = "hello world"
+s = "H"
+print(s[0])
