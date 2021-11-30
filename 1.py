@@ -106,6 +106,10 @@
 #     print(error)
 
 
+from collections import namedtuple
+from abc import ABC, abstractmethod
+
+
 class Point:
     class_name = 1
 
@@ -174,3 +178,88 @@ b = Score(18, 18)
 
 print(a == b)
 print((a + b).math, (a+b).physic)
+
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def eat(self):
+        print("eat")
+
+
+class Mammel(Animal):
+    def __init__(self, goone, name):
+        super().__init__(name)
+        self.goone = goone
+    pass
+
+
+a = Animal("fish")
+m = Mammel("fish", "balehdar")
+print(m.name)
+print(issubclass(Mammel, Animal))
+
+
+class invalidoperationerror(Exception):
+    pass
+
+
+class Stream(ABC):
+    def __init__(self):
+        self.opened = False
+
+    def open(self):
+        if self.opened:
+            raise invalidoperationerror("Stream is alredy open")
+        self.opened = True
+        print("opened")
+
+    def close(self):
+        if not self.opened:
+            raise invalidoperationerror("Stream is alredy close")
+        self.opened = False
+
+    @abstractmethod
+    def read(self):
+        pass
+
+
+class FileStream(Stream):
+    def read(self):
+        print("file is reading from FileStream")
+
+
+class WebStream(Stream):
+    def read(self):
+        print("file is reading from WebStream")
+
+# polymorfism
+
+
+def read(*file):
+    for i in file:
+        i.read()
+
+
+fstream = FileStream()
+wstream = WebStream()
+
+read(fstream, wstream)
+
+
+class List(list):
+    def append(self):
+        obj = input("please write your object: ")
+        super().append(obj)
+        return self
+
+
+l = List([1, 2, 3])
+print(l.append())
+
+
+Point = namedtuple("P", ["x", "y"])
+p1 = Point(1, 2)
+p2 = Point(1, 2)
+print(p1 == p2)
